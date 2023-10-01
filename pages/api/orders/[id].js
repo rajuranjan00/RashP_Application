@@ -12,22 +12,27 @@ const handler = async (req, res) => {
   if (method === "GET") {
     try {
       const order = await Order.findById(id);
-      res.status(200).json(order);
+      if (!order) {
+        return res.status(404).json("Order not found");
+      }
+      return res.status(200).json(order);
     } catch (err) {
-      res.status(500).json(err);
+      return res.status(500).json(err.message);
     }
-  }
-  if (method === "PUT") {
+  } else if (method === "PUT") {
     try {
       const order = await Order.findByIdAndUpdate(id, req.body, {
         new: true,
       });
-      res.status(200).json(order);
+      if (!order) {
+        return res.status(404).json("Order not found");
+      }
+      return res.status(200).json(order);
     } catch (err) {
-      res.status(500).json(err);
+      return res.status(500).json(err.message);
     }
-  }
-  if (method === "DELETE") {
+  } else {
+    return res.status(405).json("Method Not Allowed");
   }
 };
 
