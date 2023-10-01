@@ -9,18 +9,19 @@ const handler = async (req, res) => {
   if (method === "GET") {
     try {
       const orders = await Order.find();
-      res.status(200).json(orders);
+      return res.status(200).json(orders);
     } catch (err) {
-      res.status(500).json(err);
+      return res.status(500).json(err.message);
     }
-  }
-  if (method === "POST") {
+  } else if (method === "POST") {
     try {
       const order = await Order.create(req.body);
-      res.status(201).json(order);
+      return res.status(201).json(order);
     } catch (err) {
-      res.status(500).json(err);
+      return res.status(500).json(err.message);
     }
+  } else {
+    return res.status(405).json("Method Not Allowed");
   }
 };
 

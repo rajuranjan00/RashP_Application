@@ -1,4 +1,5 @@
 import cookie from "cookie";
+
 const handler = (req, res) => {
   if (req.method === "POST") {
     const { username, password } = req.body;
@@ -14,10 +15,12 @@ const handler = (req, res) => {
           path: "/",
         })
       );
-      res.status(200).json("Succesfull");
+      return res.status(200).json("Successful");
     } else {
-      res.status(400).json("Wrong Credentials!");
+      return res.status(400).json("Wrong Credentials!");
     }
+  } else {
+    return res.status(405).json("Method Not Allowed");
   }
 };
 
