@@ -12,7 +12,7 @@ const Index = ({ orders, products }) => {
     console.log(id);
     try {
       const res = await axios.delete(
-        "https://rash-p-application-wine.vercel.app/api/products/" + id
+        "https://chizza.netlify.app//api/products/" + id
       );
       setPizzaList(pizzaList.filter((pizza) => pizza._id !== id));
     } catch (err) {
@@ -26,7 +26,7 @@ const Index = ({ orders, products }) => {
 
     try {
       const res = await axios.put(
-        "https://rash-p-application-wine.vercel.app/api/orders/" + id,
+        "https://chizza.netlify.app//api/orders/" + id,
         {
           status: currentStatus + 1,
         }
@@ -133,11 +133,9 @@ export const getServerSideProps = async (ctx) => {
   }
 
   const productRes = await axios.get(
-    "https://rash-p-application-wine.vercel.app/api/products"
+    "https://chizza.netlify.app//api/products"
   );
-  const orderRes = await axios.get(
-    "https://rash-p-application-wine.vercel.app/api/orders"
-  );
+  const orderRes = await axios.get("https://chizza.netlify.app//api/orders");
 
   return {
     props: {

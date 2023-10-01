@@ -22,7 +22,7 @@ const Cart = () => {
   const createOrder = async (data) => {
     try {
       const res = await axios.post(
-        "https://rash-p-application-wine.vercel.app/api/orders",
+        "https://chizza.netlify.app//api/orders",
         data
       );
       if (res.status === 201) {

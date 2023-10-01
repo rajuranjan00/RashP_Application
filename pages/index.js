@@ -33,9 +33,7 @@ export const getServerSideProps = async (ctx) => {
     admin = true;
   }
 
-  const res = await axios.get(
-    "https://rash-p-application-wine.vercel.app/api/products"
-  );
+  const res = await axios.get("https://chizza.netlify.app//api/products");
   return {
     props: {
       pizzaList: res.data,
