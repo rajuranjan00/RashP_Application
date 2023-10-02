@@ -115,7 +115,7 @@ const Order = ({ order }) => {
 
 export const getServerSideProps = async ({ params }) => {
   const res = await axios.get(
-    `https://chizza.netlify.app/api/orders/${params.id}`
+    `https://rash-p-application.vercel.app/api/orders/${params.id}`
   );
   return {
     props: { order: res.data },
