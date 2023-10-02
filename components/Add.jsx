@@ -44,7 +44,10 @@ const Add = ({ setClose }) => {
         img: url,
       };
 
-      await axios.post("https://chizza.netlify.app/api/products", newProduct);
+      await axios.post(
+        "https://rash-p-application.vercel.app/api/products",
+        newProduct
+      );
       setClose(true);
     } catch (err) {
       console.log(err);
