@@ -1,6 +1,8 @@
 import Image from "next/image";
 import styles from "../styles/Featured.module.css";
 import { useState, useEffect } from "react";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 
 const Featured = () => {
   const [index, setIndex] = useState(0);
